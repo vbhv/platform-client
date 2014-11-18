@@ -17,6 +17,10 @@ module.exports = ['$routeProvider', function($routeProvider) {
     .when('/posts/create', {
         controller: require('./controllers/post-create-controller.js'),
         templateUrl: 'templates/posts/create.html'
+    })    
+    .when('/views/graph', {
+        controller: require('./controllers/post-graph-controller.js'),
+        templateUrl: 'templates/post-graph-view.html'
     });
 
 }];

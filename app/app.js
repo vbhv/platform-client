@@ -10,6 +10,9 @@ require('angular-ui-bootstrap/src/collapse/collapse');
 require('angular-ui-bootstrap/src/transition/transition');
 require('angular-ui-bootstrap/src/accordion/accordion');
 require('angular-mocks/angular-mocks');
+require('Highcharts/scripts/jquery.1.9.1.min'); //highcharts req
+require('Highcharts/scripts/highcharts');
+require('highcharts-ng/dist/highcharts-ng'); //highcharts directive
 
 require('./post/post-module.js');
 
@@ -27,7 +30,8 @@ angular.module('app',
         'ui.bootstrap.transition',
         'ui.tabs',
         'leaflet-directive',
-        'posts'
+        'posts',
+        'highcharts-ng'
     ])
 
     .constant('CONST', {
