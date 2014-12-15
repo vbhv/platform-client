@@ -13,4 +13,5 @@ function(
     {
         $rootScope.activePath = newPath;
     });
+
 }];

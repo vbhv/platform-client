@@ -1,10 +1,8 @@
 module.exports = [
     '$scope',
-    'ConfigEndpoint',
     'PostEndpoint',
 function(
     $scope,
-    ConfigEndpoint,
     PostEndpoint
 ) {
 
@@ -29,7 +27,6 @@ function(
         }
     });
 
-    $scope.map = ConfigEndpoint.get({ id: 'map' });
     $scope.posts = PostEndpoint.query();
 
 }];

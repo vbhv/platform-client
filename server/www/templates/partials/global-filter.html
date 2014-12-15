@@ -1,41 +1,27 @@
 <div class="global-filter-wrapper">
     <div ng-controller="filterGlobal" class="global-filter">
         <div class="filter-header" ng-click="toggle('globalFilterTabs')">
-            <h6 class="filter-title" ng-class="{ 'collapsed': globalFilterTabs }"><i class="fa  fa-bars"></i><span translate>globalFilter.filter</span></h6>
+            <h6 class="filter-title" ng-class="{ 'collapsed': !globalFilterTabs }"><i class="fa  fa-bars"></i><span translate>globalFilter.filter</span></h6>
         </div>
 
-        <div class="tabset-wrapper" ng-class="{ 'collapsed': globalFilterTabs }">
+        <div class="tabset-wrapper" ng-class="{ 'collapsed': !globalFilterTabs }">
             <ul class="tabset">
                 <li class="tab" active>
-                    <a href="" class="tab-heading"><span translate>globalFilter.categories.categories</span><span class="count-number">4</span></a>
+                    <a class="tab-heading"><span translate>globalFilter.categories.categories</span><span class="count-number">{{ global_filter.tags.results.length }}</span></a>
                     <div class="tab-content">
                         <ul>
-                            <li>
-                                <input type="checkbox" name="all-tags" value="all-tags">
-                                <label class="checkbox-label" for="all-tags" translate>globalFilter.categories.all_categories</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" name="tag" value="tag">
-                                <label class="checkbox-label" for="tag" translate>globalFilter.categories.category_1</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" name="tag" value="tag">
-                                <label class="checkbox-label" for="tag" translate>globalFilter.categories.category_2</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" name="tag" value="tag">
-                                <label class="checkbox-label" for="tag" translate>globalFilter.categories.category_3</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" name="tag" value="tag">
-                                <label class="checkbox-label" for="tag" translate>globalFilter.categories.category_4</label>
+                            <li ng-repeat="tag in global_filter.tags.results">
+                                <label class="checkbox-label" for="tag-{{ tag.id }}">
+                                    <input type="checkbox" ng-model="tag.selected" name="tag-{{ tag.id }}">
+                                    <span>{{ tag.tag }}</span>
+                                </label>
                             </li>
                         </ul>
                         <input class="clear-button" type="button" name="clear-selection-button" value="{{'globalFilter.clear_selection' | translate }}" disabled>
                     </div>
                 </li>
 
-                <li class="tab">
+                <li class="tab" ng-if="config.features.sets_ui">
                     <a href="" class="tab-heading"><span translate>globalFilter.sets.sets</span><span class="count-number">4</span></a>
                     <div class="tab-content">
                         <h6 translate>globalFilter.sets.my_sets</h6>
