@@ -33,7 +33,9 @@ deploy:
       release: ushahidi-platform-release
     on:
       repo: ushahidi/platform-client
-      all_branches: true
+      branch:
+      - master
+      - release
   - provider: cloudfiles
     username: ushahidipro
     api_key:
