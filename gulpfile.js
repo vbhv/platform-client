@@ -342,9 +342,9 @@ gulp.task('tar', ['build'], function () {
 });
 
 /**
- * Task `release` - Bump version and build release
+ * Task `release` - Build release
  */
-gulp.task('release', ['bump'], function() {
+gulp.task('release', function() {
     // Enable uglifyjs
     options.uglifyJs = true;
     // @todo update this once gulp 4 is out
