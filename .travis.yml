@@ -42,6 +42,8 @@ deploy:
       secure: HO/RdowTebdxfEg9a7B3jEMri6OWk6Oi42v/P1A+k1FXv6A6EvpUB7r7KvH6gy9ByhB152RxelywKyx2BNZCFLHZhnXyoc0UoMt/cBe/pYgLu/FgVFFHTLepEDwugAn/etlZDgnT+dYvPdEgKbUTcl6TKHN8dwKhVpRLi/fBqCI=
     region: DFW
     container: ushahidi-downloads
+    skip_cleanup: true
     on:
       repo: ushahidi/platform-client
       all_branches: true
+
