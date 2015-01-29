@@ -21,9 +21,6 @@ script:
 - npm run protractor
 before_deploy:
 - gulp release --version=build-$TRAVIS_COMMIT
-- cd build
-- mkdir -p V3/travis
-- mv *.tar.gz V3/travis/
 deploy:
   - provider: heroku
     api_key:
@@ -34,16 +31,15 @@ deploy:
     on:
       repo: ushahidi/platform-client
       branch:
-      - master
-      - release
-  - provider: cloudfiles
-    username: ushahidipro
+        - master
+        - release
+  - provider: releases
     api_key:
-      secure: HO/RdowTebdxfEg9a7B3jEMri6OWk6Oi42v/P1A+k1FXv6A6EvpUB7r7KvH6gy9ByhB152RxelywKyx2BNZCFLHZhnXyoc0UoMt/cBe/pYgLu/FgVFFHTLepEDwugAn/etlZDgnT+dYvPdEgKbUTcl6TKHN8dwKhVpRLi/fBqCI=
-    region: DFW
-    container: ushahidi-downloads
+      secure: Txqa+XwZOOdAaxRckHGXSCkT7GEUh4R6R0MtTu8otA1Vv2/W5qTICuFnaEzV/FVWrSzYbMwM+mAFHQ1L8SXOnAvbSFwnjaOjIvaEUESItkSITDXncTJItJatzMUXT0SjRTm4Jy6LQ0Pq0qXxfWD6DzsWxPVPsthprb+aEzS0/m8=
+    file: build/*
     skip_cleanup: true
     on:
       repo: ushahidi/platform-client
+      tags: true
       all_branches: true
 
